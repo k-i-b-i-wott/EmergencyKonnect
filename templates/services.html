@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'styles/service.css' %}">	
+    
+   <header class="bg-primary text-white text-center py-4">
+        <h1>Our Services</h1>
+        <p>Providing exceptional support to meet your emergency needs.</p>
+    </header>
+
+    
+    <main class="container my-5">
+        <div class="row text-center">
+            
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/fire.jpg' %}" class="card-img-top" alt="Emergency Response">
+                    <div class="card-body">
+                        <h5 class="card-title">Emergency Response</h5>
+                        <p class="card-text">Fast and reliable response services to ensure safety during emergency fire outbreaks.</p>
+                        <a href="{% url 'request_service' service_name='Fire Outbreak' %}" class="btn btn-primary">Request Service</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Service 2 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/first aid.jpg' %}" class="card-img-top" alt="Medical Aid">
+                    <div class="card-body">
+                        <h5 class="card-title">Medical Aid</h5>
+                        <p class="card-text">Quick and effective medical assistance during critical situations.</p>
+                        <a href="{% url 'request_service' service_name='Medical Aid' %}" class="btn btn-primary">Request Service</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/floods.jpg' %}" class="card-img-top" alt="Disaster Management">
+                    <div class="card-body">
+                        <h5 class="card-title">Disaster Management</h5>
+                        <p class="card-text">Expert support to manage disasters effectively and mitigate damage.
+                        In case of floods or earthquakes, please the request the service from the team.
+                        </p>
+                        <a href="{% url 'request_service' service_name='Disaster Management' %}" class="btn btn-primary">Request Service</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card shadow">
+                    <img src="{% static 'images/download.jpeg' %}" class="card-img-top" alt="Community Support"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Community Support</h5>
+                        <p class="card-text">Comprehensive resources to uplift and assist the community in need.
+                            Request the service if you need any assistance from the police officers
+                        </p>
+                        <a href="{% url 'request_service' service_name='Security Services' %}" class="btn btn-primary">Request Service</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}

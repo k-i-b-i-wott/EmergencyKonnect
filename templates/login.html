@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    
+   <div class="container mt-5">
+      <h2>Login</h2>
+      
+      <!-- Display messages -->
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} mt-3">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+      
+      <!-- Login form -->
+      <form action="" method="post">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label for="exampleInputEmail1">username</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+            
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1"  name="password">
+          </div>
+          
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+           <p>Forgot password?</p>
+          
+          <p>Don't have an account? <a href="{% url 'signup' %}">Register</a></p>
+</form>
+    
+      <!-- Display form errors -->
+      {% if form.errors %}
+        <div class="alert alert-danger mt-3">
+          <ul>
+            {% for field, errors in form.errors.items %}
+              {% for error in errors %}
+                <li><strong>{{ field|capfirst }}:</strong> {{ error }}</li>
+              {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+{% endblock %}

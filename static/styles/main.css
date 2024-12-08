@@ -1,0 +1,87 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#homepageCarousel {
+  margin-bottom: 40px;
+}
+
+.carousel-item {
+  text-align: center;
+  padding: 50px 20px;
+  background: #007bff;
+  color: white;
+  border-radius: 10px;
+}
+
+.carousel-item h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.welcome h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.welcome p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.features {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features li {
+  padding: 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.contact {
+  text-align: center;
+  padding: 20px;
+  background: #007bff;
+  color: white;
+  border-radius: 10px;
+}
+
+.contact h2 {
+  margin-bottom: 10px;
+}
+
+.contact p {
+  font-size: 1.2rem;
+}

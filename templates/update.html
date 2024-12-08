@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+	<h1>Update your emergency Request Info</h1>        
+        <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h3 class="">Edit your request</h3>
+            <form action="" method="post" enctype="multipart/form-data" class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class=" btn btn-success" type="submit">Update</button>
+                <button><a href="" class=" btn btn-secondary">Cancel</a></button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+        </div>
+{% endblock %}
