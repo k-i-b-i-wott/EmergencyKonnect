@@ -1,76 +1,78 @@
-/* General Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
+/* Service Section Styles */
+main.container {
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-/* Header Section */
-header {
-    margin-bottom: 20px;
-    padding: 20px 0;
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-}
-
-/* Card Styling */
 .card {
-    border: none;
+    background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 250px;
+    text-align: center;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card-img-top {
+.card img {
     width: 100%;
-    height: 200px; /* Fixed height for all images */
-    object-fit: cover; /* Maintains aspect ratio and prevents distortion */
-    border-bottom: 1px solid #ddd; /* Separator line between image and card body */
+    height: 150px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 20px;
 }
 
 .card-title {
-    font-size: 1.2rem;
+    font-size: 18px;
     font-weight: bold;
     color: #333;
+    margin-bottom: 10px;
 }
 
 .card-text {
-    font-size: 0.9rem;
+    font-size: 14px;
     color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .btn-primary {
-    background-color: #007bff;
+    background-color: #ff6600;
+    color: #fff;
     border: none;
-    transition: background-color 0.3s, transform 0.2s;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    transform: scale(1.05); /* Slight zoom effect */
+    background-color: #e65c00;
 }
 
-/* Row and Column Styling */
-.row {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px; /* Adds spacing between the cards */
-    flex-wrap: wrap;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    main.container {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.col-md-6.col-lg-3 {
-    max-width: 100%; /* Responsive columns */
-    margin: auto; /* Center-align in smaller screens */
-}
-
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+    .card {
+        width: 90%;
+    }
 }

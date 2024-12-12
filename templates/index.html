@@ -1,57 +1,80 @@
 {% extends 'base.html' %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'styles/main.css' %}">
-
+{#<link rel="stylesheet" href="{% static 'styles/main.css' %}">#}
 {% block content %}
-<div class="container">
-  
-  <div id="homepageCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <h2>Empowering communities with timely emergency responses.</h2>
-      </div>
-      <div class="carousel-item">
-        <h2>Report emergencies instantly and connect with responders.</h2>
-      </div>
-      <div class="carousel-item">
-        <h2>Locate nearby emergency services with ease.</h2>
-      </div>
-      <div class="carousel-item">
-        <h2>Join us in creating a safer neighborhood—every report makes a difference!</h2>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#homepageCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#homepageCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
+{% load static %}
 
-  
-  <section class="welcome">
-    <h1>Welcome to Emergency Response Team</h1>
-    <p>We provide a platform for quick and effective emergency reporting to ensure safety and timely responses in your community.</p>
-  </section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
 
-  
-  <section class="features">
-    <h2>Key Features</h2>
-    <ul>
-      <li>Report emergencies quickly and easily.</li>
-      <li>Connect with responders in real time.</li>
-      <li>Locate nearby emergency services.</li>
-      <li>Access emergency tips and resources.</li>
-    </ul>
-  </section>
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: url("{% static 'images/fire.jpg' %}") no-repeat center center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-  
-  <section class="contact">
-    <h2>Contact Us</h2>
-    <p>Hotline: 123-456-789</p>
-    <p>Email: support@emergencyresponse.com</p>
-  </section>
-</div>
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .hero-buttons {
+            margin-top: 20px;
+        }
+
+        .hero-buttons a {
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #f68b1e;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+
+        /* Footer */
+        
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>We Provide Faster response to Emergency Request </h1>
+        <p>Quality Services to bring your visions to life.</p>
+        <p>Lets save Lives</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Read More</a>
+            <a href="#" class="btn-secondary">Contact Us</a>
+        </div>
+    </section>
+
+   
 {% endblock %}

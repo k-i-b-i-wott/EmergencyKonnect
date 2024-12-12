@@ -1,50 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
-    
-{% if messages %}
-    {% for message in messages  %}
-        <div class="alert{{ message.tags }}">{{ message }}</div>
-    {% endfor %}
+<div class="container mt-4">
+    <p>Welcome Back: <span class="text"> {{ request.user.username }}</span> </p>
 
-{% endif %}
-        <h1>About Us</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>email</th>
-                <th>Phone</th>
-                <th>Location</th>
-                <th>issue</th>
-                <th>Edit</th>
-                <th>Delete/th>            
-            </tr>
-        </thead>
-        <tbody>
-        {% for student in data %}
-            <tr>
-                    
-                <td>{{ UserRequest.username }}</td>
-                <td>{{ UserRequest.email }}</td>
-                <td>{{ UserRequest.phone }}</td>
-                <td>{{ UserRequest.location }}</td>
-                <td>{{UserRequest.issue }}</td>
-                 <td><a href="{% url 'update_request' UserRequest.user_id %}" class="btn btn-success" type="button"> Edit</a></td>
-                  <td>
-                      <a href="{% url 'delete' UserRequest.user_id %}" class=" btn btn-danger" type="button" 
-                         onclick="return confirm('Are you sure you want to delete this record?')">DELETE STUDENT</a>
-                  </td>
-            
-            </tr>
-            
-        {% endfor   %}
-        	
-        
-        
-        </tbody>
-        
-    </table>
-    
+    {% if reported_emergencies %}
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Emergency ID</th>
+                    <th>Location</th>
+                    <th>Issue</th>
+                    <th>Date Reported</th>
+                    <th>Update request</th>
+                    <th>Withdraw request</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emergency in reported_emergencies %}
+                    <tr>
+                        <td>{{ emergency.id }}</td>
+                        <td>{{ emergency.location }}</td>
+                        <td>{{ emergency.issue }}</td>
+                        <td>{{ emergency.created_at|date:"F j, Y, g:i a" }}</td>
+                        <td><a href="{% url 'update_request' emergency.user_id %}" class="btn btn-success" type="button">Edit</a></td>
+                        
+                        <td><a href="{% url 'delete' emergency.user_id %}" class="btn btn-danger" type="button" onclick="return confirm('Are you sure you want to delete this request?');">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            No emergencies reported by this user.
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

@@ -20,8 +20,9 @@ from .models import UserRequest
 # Create your views here.
 
 def index(request):
-    return render(request,'index.html')
-
+    # Assume the logged-in user wants to see their own info
+    username = request.user.username if request.user.is_authenticated else None
+    return render(request, 'index.html', {'username': username})
 
 def register(request):
     if request.method == 'POST':
@@ -82,19 +83,7 @@ def about(request):
 
 
 
-# def request_view(request, service_name):
-#     submitted = False
-#     if request.method == 'POST':
-#         form = RequestForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect('/services?submitted=true ')
-#     else:
-#         form = RequestForm
-#         if 'submitted' in request.GET:
-#             submitted = True
-#         context = {'service_name': service_name}
-#     return render(request, 'request.html', {'form': form, 'submitted': submitted})
+
 @login_required
 def request_view(request, service_name):
     submitted = False
@@ -127,14 +116,32 @@ def update_view(request, user_id):
 
     return render(request,'update.html',{'emerge':emerge})
 
-def edit(request,user_id):
-    emergencyRequest=get_object_or_404(UserRequest, id=user_id)
+
+
+
+
+@login_required
+def info(request, username):
+    if not username:  # Redirect or raise an error if username is empty
+        return render(request, 'about.html', {'message': 'Invalid username'})
+
+    # Fetch emergencies for the user
+    reported_emergencies = UserRequest.objects.filter(user__username=username)
+    return render(request, 'info.html', {
+        'profile_user': username,
+        'reported_emergencies': reported_emergencies,
+    })
+
+
+
+def update_request(request,user_id):
+    emergencyRequest=get_object_or_404(UserRequest, user_id=user_id)
     if request.method == 'POST':
         form = RequestForm(request.POST, instance=emergencyRequest)
         if form.is_valid():
             form.save()
             messages.success(request, 'Student updated successfully!')
-            return redirect('about')
+            return redirect('info',)
         else:
             messages.error(request, 'Please check form details')
     else:
@@ -142,11 +149,12 @@ def edit(request,user_id):
     return render(request, 'update.html', {'form':form, 'emergencyRequest':emergencyRequest})
 
 
-def delete(request, user_id):
-    emergencyRequest = get_object_or_404(UserRequest, id=user_id)
-    try:
-        UserRequest.delete()
-        messages.success(request, 'Request deleted successfully!')
-    except Exception as e:
-        messages.error(request, 'Request was not deleted')
-    return redirect('services')
+from django.shortcuts import redirect, get_object_or_404
+from .models import UserRequest
+
+def delete_request(request, user_id):
+
+    request_to_delete = get_object_or_404(UserRequest, user_id=user_id)
+    username = request_to_delete.user.username
+    request_to_delete.delete()
+    return redirect('info', username=username)

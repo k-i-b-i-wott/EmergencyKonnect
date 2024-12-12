@@ -25,33 +25,7 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password1'].widget.attrs = {'class':'form-control'}
         self.fields['password2'].widget.attrs = {'class': 'form-control'}
 
-    # class RequestForm(forms.ModelForm):
-    #     class Meta:
-    #         model = UserRequest
-    #         fields = '__all__'
 
-            # widgets = {
-            #     'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter email', 'name':'email'}),
-            #     'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number','name':'phone'}),
-            #     'location': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter the location ','name':'location'}),
-            #     'issue': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter your issue ','name':'issue'}),
-            # }
-
-
-# class RequestForm(forms.ModelForm):
-#     class Meta:
-#
-#         model = UserRequest
-#         # fields = '__all__'
-#         widgets = {
-#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter email', 'name': 'email'}),
-#             'phone': forms.TextInput(
-#                 attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number', 'name': 'phone'}),
-#             'location': forms.TextInput(
-#                 attrs={'class': 'form-control', 'placeholder': 'Enter the location ', 'name': 'location'}),
-#             'issue': forms.Textarea(
-#                 attrs={'class': 'form-control', 'placeholder': 'Enter your issue ', 'name': 'issue'}),
-#         }
 class RequestForm(forms.ModelForm):
     class Meta:
         model = UserRequest

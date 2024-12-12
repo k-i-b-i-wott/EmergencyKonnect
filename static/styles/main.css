@@ -9,24 +9,32 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  height: 50vh; /* Adjusted height to cover half of the home page */
 }
 
 #homepageCarousel {
   margin-bottom: 40px;
+  height: 100%; /* Ensure the carousel fills the container */
 }
 
 .carousel-item {
   text-align: center;
   padding: 50px 20px;
-  background: #007bff;
-  color: white;
+  background-size: cover;
+  background-position: center;
   border-radius: 10px;
+  color: white;
 }
 
 .carousel-item h2 {
   font-size: 1.8rem;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1);
 }
 
 .welcome {
@@ -73,7 +81,7 @@ body {
 .contact {
   text-align: center;
   padding: 20px;
-  background: #007bff;
+  background: #282a2c;
   color: white;
   border-radius: 10px;
 }

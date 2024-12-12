@@ -36,10 +36,9 @@ urlpatterns = [
     path('password/', passwordsChangeView.as_view(template_name= 'password_changed.html')),
     path('password_succes/', views.password_success, name='password_success'),
 
-    path('update/<int:user_id>/', views.edit, name='update_request'),
-
-    path('delete/<int:id>/',views.delete, name='delete'),
-
+    path('info/<str:username>', views.info, name='info'),
+    path('update_request/<int:user_id>/', views.update_request, name='update_request'),  # Update view
+    path('delete/<int:user_id>/', views.delete_request, name='delete'),  # Delete vi
 
 
 ]
